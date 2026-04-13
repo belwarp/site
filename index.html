@@ -1,114 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>BELWARP Vol.01 — Kayla Painter & more - 5 September 2026</title>
+  <meta
+    name="description"
+    content="BELWARP Vol.01 — a curated evening of experimental music, live performance and audiovisual work. Featuring Kayla Painter and more. Kirkgate Centre, Shipley — 5 September."
+  />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="BELWARP Vol.01"/>
+  <meta
+    property="og:description"
+    content="Experimental music, live performance and audiovisual work. Featuring Kayla Painter and more — 5 September."
+  />
+  <meta property="og:image" content="https://belwarp.com/img/poster.jpg"/>
+  <meta property="og:url" content="https://belwarp.com"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="BELWARP"/>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="BELWARP Vol.01"/>
+  <meta
+    name="twitter:description"
+    content="Experimental music, live performance and audiovisual work — 5 September."
+  />
+  <meta name="twitter:image" content="https://belwarp.com/img/poster.jpg"/>
 
   <!-- Theme -->
-  <meta name="theme-color" content="#000000">
-
-  <!-- Title, image + SEO -->
-  <title>BELWARP — Vol.01</title>
-  <link rel="preload" as="image" href="img/poster.png">
-  <meta name="description" content="BELWARP Vol.01 — a curated evening of experimental music, live performance and audiovisual work. Featuring Kayla Painter and more acts TBA. Kirkgate Centre, Shipley — 5 Sep 2026" />
-
-  <!-- Open Graph (Facebook, WhatsApp, iMessage) -->
-  <meta property="og:title" content="BELWARP Vol.01" />
-  <meta property="og:description" content="Experimental music, live performance and audiovisual work. Featuring Kayla Painter and more acts TBA — 5 Sep 2026" />
-  <meta property="og:image" content="https://belwarp.com/img/poster.jpg" />
-  <meta property="og:url" content="https://belwarp.com" />
-  <meta property="og:type" content="website" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="BELWARP Vol.01" />
-  <meta name="twitter:description" content="Experimental music, live performance and audiovisual work. Featuring Kayla Painter and more acts TBA — 5 Sep 2026" />
-  <meta name="twitter:image" content="https://belwarp.com/img/poster.jpg" />
-
-  <!-- iOS standalone -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="BELWARP">
+  <meta name="theme-color" content="#000000"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-title" content="BELWARP"/>
 
   <!-- Icons -->
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-  <!-- Manifest -->
-  <link rel="manifest" href="/site.webmanifest">
-
-  <meta property="og:title" content="BELWARP — Vol.01">
-  <meta property="og:description" content="Experimental electronic music • Featuring an all-women lineup • September • Shipley">
-  <meta property="og:image" content="https://belwarp.com/img/poster.png">
-  <meta property="og:url" content="https://belwarp.com">
-  <meta property="og:type" content="website">
-
-  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
 
   <style>
+    :root {
+      --text: #111;
+      --bg: #ffffff;
+      --button-bg: #e8e8e8;
+      --border: #111;
+      --muted: #666;
+      --max-width: 640px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       font-family: system-ui, sans-serif;
-      background:#f5f5f5;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 64px;
     }
 
     .poster {
       width: 100%;
-      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-top: 8px;
     }
 
     .poster img {
       max-width: 95vw;
       max-height: 95vh;
       object-fit: contain;
+      display: block;
     }
 
-    .buttons {
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
+    .actions {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 32px auto 28px;
       display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .button,
+    #mc_embed_signup #mc-embedded-subscribe {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 14px 22px;
+      background: var(--button-bg);
+      color: var(--text);
+      border: 0;
+      border-radius: 4px;
+      text-decoration: none;
+      font: inherit;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .button:hover,
+    #mc_embed_signup #mc-embedded-subscribe:hover {
+      background: #fff;
+    }
+
+    .mailing-list-block {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto 36px;
+      text-align: center;
+    }
+
+    #mc_embed_signup {
+      background: transparent;
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+      width: 100%;
+    }
+
+    #mc_embed_signup h2 {
+      margin: 0 0 16px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    #mc_embed_signup_scroll {
+      display: flex;
+      flex-direction: column;
       gap: 14px;
     }
 
-    .button {
-      padding: 14px 22px;
-      background: #e8e8e8;
-      color: #111;
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 1px;
+    #mc_embed_signup .mc-field-group {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #mc_embed_signup label {
+      display: none;
+    }
+
+    #mc_embed_signup input[type="email"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
       border-radius: 4px;
+      background: #fff;
+      color: var(--text);
+      font: inherit;
+      text-align: center;
     }
 
-    .button:hover {
-      background: white;
+    #mc_embed_signup input[type="email"]::placeholder {
+      color: var(--muted);
     }
 
+    #mc_embed_signup input[type="email"]:focus {
+      outline: none;
+      border-color: #000;
+    }
+
+    #mc_embed_signup .clear {
+      display: flex;
+      justify-content: center;
+    }
+
+    #mc_embed_signup .response {
+      margin-top: 8px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .meta {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    .meta h1 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .meta p {
+      margin: 6px 0;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 16px 12px 48px;
+      }
+
+      .actions {
+        gap: 10px;
+      }
+
+      .button,
+      #mc_embed_signup #mc-embedded-subscribe {
+        width: 100%;
+      }
+
+      .meta h1 {
+        font-size: 20px;
+      }
+    }
   </style>
-
-  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/7ff53a6043e3861f8cd7824f3/5cbb7086632ade1951ea8138a.js");</script>
-
 </head>
 
 <body>
+<main class="page">
+  <div class="poster">
+    <img src="img/poster.png"
+         alt="BELWARP event poster, depicting an industrial scene, with the caption BELWARP - vol.1 - Experimental Electronic Music - featuring an all-women lineup - September 2026 - Kirkgate Community Centre, Shipley">
+  </div>
 
-<div class="poster">
-  <img src="img/poster.png" alt="BELWARP event poster, depicting an industrial scene, with the caption BELWARP - vol.1 - Experimental Electronic Music - featuring an all-women lineup - September 2026 - Kirkgate Community Centre, Shipley">
-</div>
+  <div class="actions">
+    <!--    <a class="button" href="https://www.tickettailor.com/events/TBC" target="_blank" rel="noopener noreferrer">-->
+    <!--      Tickets-->
+    <!--    </a>-->
 
-<!--<div class="buttons">-->
-<!--  <a class="button" href="https://linktr.ee/belwarp">TICKETS</a>-->
-<!--  <a class="button" href="https://instagram.com/belwarp_music">INSTAGRAM</a>-->
-<!--</div>-->
+    <a class="button" href="https://instagram.com/bel.warp" target="_blank" rel="noopener noreferrer">
+      Instagram
+    </a>
+  </div>
 
+  <div id="mc_embed_shell" class="mailing-list-block">
+    <div id="mc_embed_signup">
+      <form
+        action="https://belwarp.us9.list-manage.com/subscribe/post?u=7ff53a6043e3861f8cd7824f3&amp;id=a12aefc4b1&amp;f_id=00f6d5e3f0"
+        method="post"
+        id="mc-embedded-subscribe-form"
+        name="mc-embedded-subscribe-form"
+        class="validate"
+        target="_blank"
+        novalidate
+      >
+        <div id="mc_embed_signup_scroll">
+          <h2>Join mailing list</h2>
+
+          <div class="mc-field-group">
+            <label for="mce-EMAIL" class="sr-only">Email address</label>
+            <input
+              type="email"
+              name="EMAIL"
+              class="required email"
+              id="mce-EMAIL"
+              placeholder="Email address"
+              required
+            />
+          </div>
+
+          <div id="mce-responses" class="clear foot">
+            <div class="response" id="mce-error-response" style="display:none;"></div>
+            <div class="response" id="mce-success-response" style="display:none;"></div>
+          </div>
+
+          <div aria-hidden="true" style="position:absolute; left:-5000px;">
+            <input
+              type="text"
+              name="b_7ff53a6043e3861f8cd7824f3_a12aefc4b1"
+              tabindex="-1"
+              value=""
+            />
+          </div>
+
+          <div class="clear">
+            <input
+              type="submit"
+              name="subscribe"
+              id="mc-embedded-subscribe"
+              value="Join Mailing List"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="meta">
+    <h1>BELWARP Vol.01</h1>
+    <p>Experimental music, live performance and audiovisual work.</p>
+    <p>Featuring Kayla Painter and more.</p>
+    <p>Saturday 5 September — Kirkgate Centre, Shipley.</p>
+    <p>Doors 18:00 · Music from 18:30</p>
+  </div>
+</main>
+
+<script src="https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+<script>
+  (function ($) {
+    window.fnames = [];
+    window.ftypes = [];
+    fnames[0] = 'EMAIL';
+    ftypes[0] = 'email';
+  }(jQuery));
+  var $mcj = jQuery.noConflict(true);
+</script>
 </body>
-
 </html>
