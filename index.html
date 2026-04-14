@@ -41,10 +41,7 @@
     :root {
       --text: #111;
       --bg: #ffffff;
-      --button-bg: #e8e8e8;
       --border: #111;
-      --muted: #666;
-      --max-width: 640px;
     }
 
     * {
@@ -79,65 +76,6 @@
       object-fit: contain;
     }
 
-    .actions {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      width: 100%;
-      align-items: center;
-      margin: 0;
-    }
-
-    .mailing-form {
-      width: 100%;
-      max-width: 320px;
-      margin: 0;
-    }
-
-    .mail-row {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      width: 100%;
-    }
-
-    .mail-input {
-      width: 100%;
-      min-height: 42px;
-      padding: 10px 14px;
-      background: rgba(255,255,255,0.94);
-      color: #111;
-      border: none;
-      border-radius: 4px;
-      text-align: center;
-      font: inherit;
-      font-size: 12px;
-      letter-spacing: 0.2px;
-    }
-
-    .mail-input::placeholder {
-      color: #666;
-    }
-
-    .mail-input:focus {
-      outline: none;
-      box-shadow: none;
-    }
-
-    #mc_embed_signup h2 {
-      margin: 0 0 16px;
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .button:focus,
-    .mail-input:focus {
-      outline: none;
-      box-shadow: none;
-    }
-
     .overlay {
       position: absolute;
       left: 50%;
@@ -154,30 +92,17 @@
       padding: 0;
     }
 
-    .meta {
-      max-width: 680px;
-      margin: 0 auto;
-      text-align: center;
-      font-size: 14px;
-      line-height: 1.5;
-      color: var(--text);
-    }
-
-    .meta h1 {
-      margin: 0 0 10px;
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .meta p {
-      margin: 6px 0;
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      align-items: center;
+      margin: 0;
     }
 
     .button {
       width: 100%;
-      max-width: 320px;
       min-height: 48px;
       padding: 12px 18px;
 
@@ -192,7 +117,7 @@
       border-radius: 4px;
 
       font: inherit;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -213,16 +138,46 @@
       outline: none;
     }
 
-    @media (max-width: 640px) {
+    .mailing-form {
+      width: 100%;
+      max-width: 320px;
+      margin: 0;
+    }
 
-      .actions {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        align-items: center;
-      }
+    .mail-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+    }
 
+    .mail-input {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.94);
+      color: #111;
+      border: none;
+      border-radius: 4px;
+      text-align: center;
+      font: inherit;
+      font-size: 14px;
+      letter-spacing: 0.2px;
+      appearance: none;
+      -webkit-appearance: none;
+      box-shadow: none;
+    }
+
+    .mail-input::placeholder {
+      color: #666;
+    }
+
+    .mail-input:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    @media (max-width: 640px) and (orientation: portrait) {
       .poster img {
         width: 100vw;
         height: auto;
@@ -230,22 +185,44 @@
       }
 
       .overlay {
-        top: 75%;
-        width: min(78vw, 320px);
-        gap: 6px;
+        top: 64%;
+        width: min(84vw, 380px);
+        gap: 8px;
+      }
+
+      .button,
+      .mail-input {
+        min-height: 50px;
+        font-size: 15px;
+        padding: 12px 16px;
+      }
+
+      .actions {
+        gap: 10px;
       }
 
       .mail-row {
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 900px) and (orientation: landscape) {
+      .poster img {
+        max-height: 100vh;
+        width: auto;
+      }
+
+      .overlay {
+        top: 60%;
+        width: 320px;
         gap: 6px;
       }
 
-      #mc_embed_signup form {
-        width: 100%;
-        margin: 0;
-      }
-
-      .meta h1 {
-        font-size: 20px;
+      .button,
+      .mail-input {
+        min-height: 42px;
+        font-size: 13px;
+        padding: 10px 14px;
       }
     }
   </style>
