@@ -1,0 +1,1067 @@
+/* ============================================================
+   BELWARP / BETA
+   ============================================================ */
+
+:root {
+  --black: #050505;
+  --white: #f4f4f0;
+  --grey: #8b8b86;
+
+  --page-pad: clamp(1rem, 3vw, 3rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--black);
+  color: var(--white);
+}
+
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--white);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  line-height: 1.35;
+
+  overflow-x: hidden;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  text-decoration-style: double;
+}
+
+a:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 5px;
+}
+
+
+/* ============================================================
+   LANDING
+
+   The header is deliberately taller than the viewport.
+
+   BELWARP sticks while we scroll through it, then the CSS
+   scroll animation progressively squashes the word.
+   ============================================================ */
+
+.hero {
+  position: relative;
+  height: 180vh;
+  background: var(--black);
+}
+
+.hero__title {
+  position: sticky;
+  top: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+.hero__word {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  transform-origin: center center;
+
+  animation: hero-squash linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0 90vh;
+}
+
+.hero__word text {
+  fill: var(--white);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 240px;
+  font-weight: 900;
+
+  letter-spacing: -8px;
+}
+
+@keyframes hero-squash {
+  from {
+    transform: scaleX(1) scaleY(1);
+  }
+
+  to {
+    transform: scaleX(0.55) scaleY(0.12);
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hero__meta {
+  position: absolute;
+  left: var(--page-pad);
+  bottom: var(--page-pad);
+
+  display: flex;
+  gap: 1rem;
+
+  font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+
+  z-index: 2;
+}
+
+
+.scroll-cue {
+  position: absolute;
+  right: var(--page-pad);
+  bottom: var(--page-pad);
+
+  font-size: clamp(2rem, 4vw, 5rem);
+
+  z-index: 2;
+}
+
+
+/* ============================================================
+   EVENTS
+   ============================================================ */
+
+.event {
+  position: relative;
+
+  min-height: 100vh;
+  padding: var(--page-pad);
+}
+
+.event__header {
+  min-height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding-bottom: 8vh;
+}
+
+.event__status {
+  margin: 0 0 1rem;
+
+  color: var(--grey);
+
+  font-size: clamp(0.75rem, 1vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.event__title {
+  margin: 0;
+
+  font-size: clamp(4rem, 15vw, 15rem);
+  font-weight: 900;
+  line-height: 0.75;
+  letter-spacing: -0.065em;
+}
+
+.event__details {
+  margin-top: clamp(2rem, 5vw, 5rem);
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+
+/* ============================================================
+   CURRENT EVENT
+   ============================================================ */
+
+.event--current {
+  min-height: 220vh;
+}
+
+
+/*
+  Blank visual surface for now.
+
+  Later this can become artwork, photography, gradients,
+  texture, etc. without changing the HTML structure.
+*/
+
+.event__art {
+  width: 100%;
+  min-height: 80vh;
+
+  margin: 10vh 0;
+}
+
+
+/*
+  Placeholder treatment purely so we can see the space
+  while we're prototyping.
+*/
+
+.event__art--02 {
+  border-top: 1px solid var(--white);
+  border-bottom: 1px solid var(--white);
+}
+
+
+.event__lineup {
+  margin: 15vh 0;
+
+  font-size: clamp(2.5rem, 8vw, 9rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+}
+
+.event__lineup p {
+  margin: 0;
+}
+
+.event__lineup-more {
+  margin-top: 2rem !important;
+
+  color: var(--grey);
+
+  font-size: 0.25em;
+  letter-spacing: 0.08em;
+}
+
+
+.event__action {
+  margin: 10vh 0;
+
+  font-size: clamp(3rem, 10vw, 10rem);
+  font-weight: 900;
+  line-height: 0.9;
+}
+
+
+/* ============================================================
+   PAST MARKER
+   ============================================================ */
+
+.past-marker {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2rem;
+
+  font-size: clamp(3rem, 12vw, 12rem);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+}
+
+
+/* ============================================================
+   BELWARP.01
+   ============================================================ */
+
+.event--past {
+  padding-top: 20vh;
+}
+
+
+.event__lineup--01 {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* ============================================================
+   PHOTOGRAPHY
+
+   Deliberately asymmetric. This should feel laid out rather
+   than like a gallery component.
+   ============================================================ */
+
+.image {
+  position: relative;
+
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+.image--wide {
+  width: min(90vw, 1600px);
+}
+
+.image--portrait {
+  width: min(55vw, 850px);
+}
+
+
+.image--01 {
+  margin-left: 0;
+}
+
+.image--02 {
+  margin-left: auto;
+}
+
+.image--03 {
+  margin-left: 8vw;
+}
+
+.image--04 {
+  margin-left: auto;
+  margin-right: 6vw;
+}
+
+
+/* ============================================================
+   VERY LIGHT CSS-ONLY PARALLAX
+
+   These movements are deliberately small.
+
+   Scrolling remains normal; we're just changing where an
+   image sits slightly as it crosses the viewport.
+   ============================================================ */
+
+@supports (animation-timeline: view()) {
+
+  .image {
+    animation-name: image-drift;
+    animation-duration: 1ms;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+
+  @keyframes image-drift {
+    from {
+      transform: translateY(8vh);
+    }
+
+    to {
+      transform: translateY(-8vh);
+    }
+  }
+
+
+  /*
+    Make alternating images move through slightly different
+    distances so everything doesn't feel attached to one plane.
+  */
+
+  .image--02,
+  .image--04 {
+    animation-name: image-drift-fast;
+  }
+
+  @keyframes image-drift-fast {
+    from {
+      transform: translateY(14vh);
+    }
+
+    to {
+      transform: translateY(-14vh);
+    }
+  }
+}
+
+
+/* ============================================================
+   QUOTES
+   ============================================================ */
+
+.quote {
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 10vh 0;
+
+  display: flex;
+  align-items: center;
+}
+
+.quote p {
+  margin: 0;
+
+  max-width: 12ch;
+
+  font-size: clamp(4rem, 13vw, 14rem);
+  font-weight: 900;
+  line-height: 0.78;
+  letter-spacing: -0.055em;
+}
+
+
+/* ============================================================
+   VIDEO
+   ============================================================ */
+
+.video {
+  width: min(80vw, 1200px);
+
+  margin: 30vh auto;
+}
+
+.video video {
+  width: 100%;
+}
+
+
+/* ============================================================
+   EPILOGUE
+   ============================================================ */
+
+.event__epilogue {
+  min-height: 120vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  font-size: clamp(3rem, 9vw, 10rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+}
+
+.event__epilogue p {
+  margin: 0;
+}
+
+
+/* ============================================================
+   COLOPHON / END OF BOOK
+   ============================================================ */
+
+.colophon {
+  min-height: 120vh;
+
+  padding: var(--page-pad);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding-bottom: 10vh;
+}
+
+.colophon h2 {
+  margin: 0 0 4rem;
+
+  font-size: clamp(5rem, 18vw, 20rem);
+  font-weight: 900;
+  line-height: 0.72;
+  letter-spacing: -0.065em;
+}
+
+.colophon > p {
+  max-width: 30ch;
+
+  margin: 0 0 1.5rem;
+
+  font-size: clamp(1.5rem, 3vw, 3rem);
+}
+
+.colophon__links {
+  margin-top: 10vh;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 3rem;
+
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  font-weight: 700;
+}
+
+
+/* ============================================================
+   SMALL SCREENS
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+  .hero__title {
+    font-size: 50vw;
+    line-height: 0.7;
+    letter-spacing: -0.08em;
+  }
+
+  .hero__meta {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .event__header {
+    min-height: 70vh;
+  }
+
+  .image--portrait {
+    width: 78vw;
+  }
+
+  .image--03 {
+    margin-left: 0;
+  }
+
+  .image--04 {
+    margin-right: 0;
+  }
+
+  .video {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   BELWARP.01 / SCROLL CHAPTERS
+   ============================================================ */
+
+.event--01 {
+  padding: 0;
+  overflow: visible;
+}
+
+
+/* ------------------------------------------------------------
+   CHAPTER
+   ------------------------------------------------------------ */
+
+.chapter {
+  position: relative;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  background: var(--black);
+}
+
+
+/* ------------------------------------------------------------
+   FULL-SCREEN MEDIA
+   ------------------------------------------------------------ */
+
+.chapter__media {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: -3;
+}
+
+
+.chapter__shade {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.12),
+      rgba(0,0,0,.58)
+    );
+}
+
+
+.chapter__shade--light {
+  background: rgba(0,0,0,.25);
+}
+
+
+/* ------------------------------------------------------------
+   TEXT OVER MEDIA
+   ------------------------------------------------------------ */
+
+.chapter__content {
+  position: relative;
+
+  min-height: 100vh;
+
+  padding: var(--page-pad);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  z-index: 1;
+}
+
+
+.chapter__content--bottom {
+  justify-content: flex-end;
+}
+
+
+.chapter__title {
+  margin: 0;
+
+  font-size: clamp(5rem, 18vw, 18rem);
+  font-weight: 900;
+
+  line-height: .72;
+
+  letter-spacing: -.07em;
+
+  color: var(--white);
+
+  mix-blend-mode: difference;
+}
+
+
+.chapter__statement {
+  margin: 0;
+
+  max-width: 8ch;
+
+  font-size: clamp(4rem, 13vw, 14rem);
+  font-weight: 900;
+
+  line-height: .76;
+
+  letter-spacing: -.06em;
+}
+
+
+/* ------------------------------------------------------------
+   LINEUP
+   ------------------------------------------------------------ */
+
+.chapter--lineup {
+  min-height: 110vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: var(--page-pad);
+}
+
+
+.chapter--lineup .event__lineup {
+  margin: 0;
+}
+
+
+/* ------------------------------------------------------------
+   TREEMAP / MOSAIC
+   ------------------------------------------------------------ */
+
+.chapter--grid {
+  min-height: 100vh;
+}
+
+
+.media-grid {
+  position: absolute;
+
+  inset: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.4fr)
+    minmax(0, .9fr)
+    minmax(0, 1.1fr);
+
+  grid-template-rows:
+    55vh
+    45vh;
+
+  z-index: -2;
+}
+
+
+.media-grid img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter:
+    saturate(1.1)
+    contrast(1.05);
+}
+
+
+.media-grid img:nth-child(1) {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+
+
+.media-grid img:nth-child(2) {
+  grid-column: 3;
+  grid-row: 1 / 3;
+}
+
+
+.media-grid img:nth-child(3) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+
+.media-grid img:nth-child(4) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+
+.chapter--grid::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0,0,0,.1);
+
+  z-index: -1;
+}
+
+
+.chapter__overlay-text {
+  position: absolute;
+
+  left: var(--page-pad);
+  top: 50%;
+  bottom: auto;
+
+  transform: translateY(-50%);
+
+  max-width: none;
+
+  font-size: clamp(3rem, 7vw, 8rem);
+  font-weight: 900;
+
+  line-height: 0.78;
+  letter-spacing: -0.06em;
+
+  color: var(--white);
+  mix-blend-mode: difference;
+
+  white-space: nowrap;
+
+  z-index: 1;
+}
+
+/* ------------------------------------------------------------
+   VIDEO
+   ------------------------------------------------------------ */
+
+.chapter--video {
+  min-height: 120vh;
+}
+
+
+.chapter--video video {
+  filter:
+    contrast(1.08)
+    saturate(1.05);
+}
+
+
+/* ------------------------------------------------------------
+   POSTER
+   ------------------------------------------------------------ */
+
+.chapter--poster {
+  min-height: 120vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12vh var(--page-pad);
+}
+
+
+.poster {
+  width: min(72vw, 900px);
+
+  margin: 0;
+}
+
+
+.poster img {
+  width: 100%;
+
+  display: block;
+
+  transform: rotate(-2deg);
+
+  box-shadow:
+    0 2rem 6rem rgba(0,0,0,.5);
+}
+
+
+/* ------------------------------------------------------------
+   QUOTE
+   ------------------------------------------------------------ */
+
+.chapter--quote {
+  min-height: 120vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: var(--page-pad);
+}
+
+
+.chapter--quote .quote {
+  min-height: auto;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+.chapter--quote .quote p {
+  max-width: 10ch;
+
+  margin: 0;
+
+  font-size: clamp(4rem, 13vw, 14rem);
+  font-weight: 900;
+
+  line-height: .76;
+
+  letter-spacing: -.06em;
+}
+
+
+/* ------------------------------------------------------------
+   EPILOGUE
+   ------------------------------------------------------------ */
+
+.chapter--epilogue {
+  min-height: 130vh;
+
+  padding: var(--page-pad);
+}
+
+
+.chapter--epilogue .event__epilogue {
+  min-height: 130vh;
+
+  margin: 0;
+
+  justify-content: center;
+}
+
+
+/* ============================================================
+   LIGHT PARALLAX / DEPTH
+   ============================================================ */
+
+@supports (animation-timeline: view()) {
+
+  .chapter--hero .chapter__media,
+  .chapter--video .chapter__media {
+
+    animation:
+      media-drift linear both;
+
+    animation-timeline: view();
+
+    animation-range:
+      entry 0%
+      exit 100%;
+  }
+
+
+  @keyframes media-drift {
+
+    from {
+      transform:
+        scale(1.08)
+        translateY(4vh);
+    }
+
+    to {
+      transform:
+        scale(1.08)
+        translateY(-4vh);
+    }
+
+  }
+
+
+  .poster {
+
+    animation:
+      poster-drift linear both;
+
+    animation-timeline: view();
+
+    animation-range:
+      entry 0%
+      exit 100%;
+  }
+
+
+  @keyframes poster-drift {
+
+    from {
+      transform:
+        translateY(8vh)
+        rotate(-1deg);
+    }
+
+    to {
+      transform:
+        translateY(-8vh)
+        rotate(1deg);
+    }
+
+  }
+
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+  .media-grid {
+
+    grid-template-columns:
+      1fr
+      1fr;
+
+    grid-template-rows:
+      50vh
+      50vh;
+
+  }
+
+
+  .media-grid img:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+
+  .media-grid img:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+
+  .media-grid img:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+
+  .media-grid img:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+
+  .poster {
+    width: 90vw;
+  }
+
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .chapter__media,
+  .poster {
+    animation: none !important;
+    transform: none !important;
+  }
+
+
+  /*
+    Decorative autoplay video disappears.
+    Its poster image remains available as fallback content
+    if you later add it as a CSS background.
+  */
+
+  .chapter--video video {
+    display: none;
+  }
+
+
+  .chapter--video {
+    background:
+      url("./assets/bwp01/wrap-reel-poster.jpg")
+      center / cover
+      no-repeat;
+  }
+
+}
