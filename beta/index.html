@@ -210,7 +210,7 @@
       <div class="chapter__content">
 
         <p class="event__status">
-          01 / COMPLETE
+          01 // COMPLETE
         </p>
 
         <h2 id="belwarp-01" class="chapter__title">
@@ -294,39 +294,37 @@
          WRAP VIDEO AS BACKGROUND
          ====================================================== -->
 
-    <section class="chapter chapter--video">
+    <section class="chapter chapter--reel">
 
-      <video
-        class="chapter__media"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        poster="./assets/bwp01/wrap-reel-poster.jpg"
-        aria-hidden="true"
-      >
-        <source
-          src="./assets/bwp01/belwarp01-wrap.mp4"
-          type="video/mp4"
+      <div class="reel-wrap">
+
+        <video
+          class="reel-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="./assets/bwp01/wrap-reel-poster.jpg"
+          aria-hidden="true"
         >
-      </video>
+          <source
+            src="./assets/bwp01/belwarp01-wrap.mp4"
+            type="video/mp4"
+          >
+        </video>
 
-      <div class="chapter__shade chapter__shade--light"></div>
-
-      <div class="chapter__content chapter__content--bottom">
-
-        <p class="chapter__statement">
-          APPARENTLY<br>
-          THIS ACTUALLY<br>
-          HAPPENED
-        </p>
+        <div class="reel-copy">
+          <p>
+            APPARENTLY<br>
+            THIS ACTUALLY<br>
+            HAPPENED
+          </p>
+        </div>
 
       </div>
 
     </section>
-
-
     <!-- ======================================================
          POSTER / FLYER
          ====================================================== -->
@@ -349,13 +347,13 @@
          ====================================================== -->
 
     <section class="chapter chapter--quote">
-
-      <blockquote class="quote">
+      <blockquote class="big-quote">
+        <span class="big-quote__mark big-quote__mark--open" aria-hidden="true">“</span>
         <p>
-          "HOW THE HELL<br>IS THIS HAPPENING IN SHIPLEY...?!"
+          HOW THE HELL<br>IS THIS HAPPENING IN SHIPLEY?!
         </p>
+        <span class="big-quote__mark big-quote__mark--close" aria-hidden="true">”</span>
       </blockquote>
-
     </section>
 
 
