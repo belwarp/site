@@ -58,6 +58,13 @@
 </header>
 
 <main>
+  <section class="brand-chapter" aria-hidden="true">
+    <img
+      src="./assets/belwarp-dotmark.png"
+      alt=""
+      class="brand-chapter__mark"
+    >
+  </section>
 
   <!--
     ==========================================================
@@ -65,65 +72,96 @@
     ==========================================================
   -->
 
-  <section class="event event--current" aria-labelledby="belwarp-02">
+  <div class="timeline-marker" aria-hidden="true">
+    <span>COMING SOON</span>
+    <span>↓</span>
+  </div>
 
-    <header class="event__header">
+    <section class="chapter chapter--hero chapter--02-hero">
 
-      <p class="event__status">
-        NEXT TRANSMISSION
-      </p>
+      <img
+        src="./assets/belwarp-dotmark.png"
+        alt=""
+        class="dotmark dotmark--02"
+        aria-hidden="true"
+      >
 
-      <h2 id="belwarp-02" class="event__title">
-        BELWARP.02
-      </h2>
+      <img
+        src="./assets/bwp02/belwarp02-hero.png"
+        alt=""
+        class="chapter__media"
+      >
 
-      <div class="event__details">
+      <div class="chapter__shade"></div>
 
-        <time datetime="2026-11-28">
-          28 NOV 2026
-        </time>
+      <div class="chapter__content">
 
-        <span>
-            KIRKGATE CENTRE
-          </span>
+        <p class="event__status">
+          NEXT TRANSMISSION
+        </p>
 
-        <span>
-            SHIPLEY
-          </span>
+        <h2 id="belwarp-02" class="chapter__title">
+          BELWARP.02
+        </h2>
+
+        <div class="event__details">
+          <time datetime="2026-11-28">
+            28 NOV 2026
+          </time>
+
+          <span>KIRKGATE CENTRE</span>
+          <span>SHIPLEY</span>
+        </div>
 
       </div>
 
-    </header>
+    </section>
 
 
-    <!--
-      Keep this deliberately sparse until the full bill exists.
-    -->
+    <section class="chapter chapter--02-lineup">
 
-    <div class="event__art event__art--02" aria-hidden="true">
-    </div>
+      <video
+        class="chapter__media"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="./assets/bwp02/lineup-poster.jpg"
+        aria-hidden="true"
+      >
+        <source
+          src="./assets/bwp02/swk-promo-web.mp4"
+          type="video/mp4"
+        >
+      </video>
+
+      <div class="chapter__shade chapter__shade--heavy"></div>
+
+      <div class="chapter__content chapter__content--bottom">
+
+        <div class="event__lineup">
+          <p>SILVERWINGKILLER</p>
+          <p>SIN CLAIR</p>
+          <p class="event__lineup-more">+ MORE TO BE ANNOUNCED</p>
+        </div>
+
+      </div>
+
+    </section>
 
 
-    <div class="event__lineup">
+    <section class="chapter chapter--poster chapter--02-poster">
 
-      <!--
-      <p>AYA</p>
-      -->
+      <figure class="poster">
+        <img
+          src="./assets/bwp02/belwarp02-poster.png"
+          alt="BELWARP.02 promotional artwork"
+          loading="lazy"
+        >
+      </figure>
 
-      <p>
-        SILVERWINGKILLER
-      </p>
-
-      <p>
-        SIN CLAIR
-      </p>
-
-      <p class="event__lineup-more">
-        + MORE TO BE ANNOUNCED
-      </p>
-
-    </div>
-
+    </section>
 
     <!--
       Add real Ticket Tailor URL when ticketing is live.
@@ -141,16 +179,8 @@
     </p>
     -->
 
-  </section>
-
-
-  <!--
-    Not a link.
-    Scroll is the navigation.
-  -->
-
-  <div class="past-marker" aria-hidden="true">
-    <span>PAST</span>
+  <div class="timeline-marker" aria-hidden="true">
+    <span>PAST EVENTS</span>
     <span>↓</span>
   </div>
 
@@ -180,7 +210,7 @@
       <div class="chapter__content">
 
         <p class="event__status">
-          001 / COMPLETE
+          01 / COMPLETE
         </p>
 
         <h2 id="belwarp-01" class="chapter__title">
@@ -204,23 +234,6 @@
       </div>
 
     </section>
-
-
-    <!-- ======================================================
-         ARTISTS
-         ====================================================== -->
-
-    <section class="chapter chapter--lineup">
-
-      <div class="event__lineup event__lineup--01">
-        <p>KAYLA PAINTER</p>
-        <p>DRUM &amp; LACE</p>
-        <p>NØELLE</p>
-        <p>CHERRY SERAPH</p>
-      </div>
-
-    </section>
-
 
     <!-- ======================================================
          TREEMAP / MOSAIC
@@ -255,6 +268,23 @@
       <div class="chapter__overlay-text">
         FOUR INCREDIBLE ARTISTS<br>
         ONE UNFORGETTABLE NIGHT
+      </div>
+
+    </section>
+
+
+
+    <!-- ======================================================
+         ARTISTS
+         ====================================================== -->
+
+    <section class="chapter chapter--lineup">
+
+      <div class="event__lineup event__lineup--01">
+        <p>KAYLA PAINTER</p>
+        <p>DRUM &amp; LACE</p>
+        <p>NØELLE</p>
+        <p>CHERRY SERAPH</p>
       </div>
 
     </section>
@@ -322,7 +352,7 @@
 
       <blockquote class="quote">
         <p>
-          HOW THE HELL IS THIS HAPPENING IN SHIPLEY?!
+          "HOW THE HELL<br>IS THIS HAPPENING IN SHIPLEY...?!"
         </p>
       </blockquote>
 
@@ -338,15 +368,10 @@
       <div class="event__epilogue">
 
         <p>
-          FOUR ARTISTS.
-        </p>
-
-        <p>
-          ONE NIGHT.
-        </p>
-
-        <p>
-          YOU HAD TO BE THERE.
+          YOU HAD TO BE THERE...
+          <br>
+          <br>
+          YOU CAN STILL
         </p>
 
       </div>
@@ -368,17 +393,12 @@
     </h2>
 
     <p>
-      Occasional alternative, experimental and electronic music
-      in Shipley, West Yorkshire.
+      Occasional experimental / alternative music series
+      in Shipley, West Yorkshire
     </p>
 
     <p>
-      No two BELWARP nights should feel the same.
-    </p>
-
-    <p>
-      Each one should feel like it couldn't have happened
-      anywhere else.
+      It couldn't happen anywhere else
     </p>
 
 

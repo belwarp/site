@@ -21,6 +21,66 @@ html {
   color: var(--white);
 }
 
+
+body {
+  margin: 0;
+  color: var(--white);
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  line-height: 1.35;
+  overflow-x: hidden;
+  background:
+    linear-gradient(
+      rgba(5, 5, 5, 0),
+      rgba(5, 5, 5, 0)
+    ),
+    url("./assets/belwarp-tessellation.png");
+  background-size:
+    auto,
+    700px auto;
+  background-repeat:
+    repeat,
+    repeat;
+  background-position:
+    0 0,
+    center top;
+  background-attachment:
+    fixed,
+    fixed;
+}
+
+body {
+  background-image: url("./assets/belwarp-tessellation.png") !important;
+  background-size: 500px auto !important;
+  background-repeat: repeat !important;
+}
+
+main,
+.hero,
+.event,
+.chapter,
+.past-marker,
+.colophon {
+  background: transparent !important;
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    url("./assets/belwarp-tessellation.png")
+    center top / cover
+    no-repeat;
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: -1;
+}
+
 body {
   margin: 0;
   background: var(--black);
@@ -157,6 +217,30 @@ a:focus-visible {
   z-index: 2;
 }
 
+.brand-chapter {
+  min-height: 100vh;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+  /*background: var(--black);*/
+}
+
+.brand-chapter__mark {
+  width: min(75vmin, 900px);
+  height: auto;
+}
+
+.dotmark--02 {
+  position: absolute;
+  width: 80vmin;
+  right: -25vmin;
+  top: 30vh;
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+}
 
 /* ============================================================
    EVENTS
@@ -281,7 +365,7 @@ a:focus-visible {
    PAST MARKER
    ============================================================ */
 
-.past-marker {
+.timeline-marker {
   min-height: 100vh;
 
   display: flex;
@@ -487,6 +571,9 @@ a:focus-visible {
    ============================================================ */
 
 .colophon {
+
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   min-height: 120vh;
 
   padding: var(--page-pad);
@@ -508,7 +595,7 @@ a:focus-visible {
 }
 
 .colophon > p {
-  max-width: 30ch;
+  max-width: 40ch;
 
   margin: 0 0 1.5rem;
 
@@ -637,7 +724,6 @@ a:focus-visible {
 
 .chapter__content {
   position: relative;
-
   min-height: 100vh;
 
   padding: var(--page-pad);
@@ -658,18 +744,18 @@ a:focus-visible {
 .chapter__title {
   margin: 0;
 
-  font-size: clamp(5rem, 18vw, 18rem);
+  font-size: clamp(4rem, 14vw, 14rem);
   font-weight: 900;
-
-  line-height: .72;
-
-  letter-spacing: -.07em;
+  line-height: 0.72;
+  letter-spacing: -0.07em;
 
   color: var(--white);
-
   mix-blend-mode: difference;
-}
 
+  white-space: nowrap;
+
+  transform: translateY(0.08em);
+}
 
 .chapter__statement {
   margin: 0;
@@ -805,7 +891,7 @@ a:focus-visible {
 
   white-space: nowrap;
 
-  z-index: 1;
+  /*z-index: 1;*/
 }
 
 /* ------------------------------------------------------------
@@ -1064,4 +1150,49 @@ a:focus-visible {
       no-repeat;
   }
 
+}
+
+/* ============================================================
+   BELWARP.02
+   ============================================================ */
+
+.chapter--02-hero {
+  min-height: 110vh;
+}
+
+.chapter--02-lineup {
+  min-height: 120vh;
+}
+
+.chapter--02-lineup .event__lineup {
+  margin: 0;
+
+  font-size: clamp(3rem, 10vw, 11rem);
+  line-height: 0.82;
+}
+
+.chapter__shade--heavy {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.15),
+      rgba(0,0,0,.72)
+    );
+}
+
+.chapter--02-poster {
+  /*background: var(--black);*/
+}
+
+.chapter--02-poster .poster {
+  width: min(68vw, 850px);
+}
+
+/* slightly nastier visual treatment for .02 */
+
+.chapter--02-hero .chapter__media,
+.chapter--02-lineup .chapter__media {
+  filter:
+    contrast(1.15)
+    saturate(.9);
 }
