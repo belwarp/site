@@ -1231,21 +1231,25 @@ a:focus-visible {
   .media-grid img:nth-child(1) {
     grid-column: 1;
     grid-row: 1;
+    object-position: 50% 35%;
   }
 
   .media-grid img:nth-child(2) {
     grid-column: 2;
     grid-row: 1;
+    object-position: 50% 50%;
   }
 
   .media-grid img:nth-child(3) {
     grid-column: 1;
     grid-row: 2;
+    object-position: 50% 50%;
   }
 
   .media-grid img:nth-child(4) {
     grid-column: 2;
     grid-row: 2;
+    object-position: 30% 50%;
   }
 
   .chapter__overlay-text {
@@ -1260,6 +1264,15 @@ a:focus-visible {
 
   .poster {
     width: 90vw;
+  }
+
+  .chapter--02-lineup .event__lineup {
+    font-size: clamp(2rem, 10vw, 4rem);
+    letter-spacing: -0.05em;
+  }
+
+  .colophon h2 {
+    font-size: 17vw;
   }
 }
 
