@@ -1219,23 +1219,13 @@ a:focus-visible {
   }
 
   .media-grid {
-    grid-template-columns:
-      1fr
-      1fr;
-
-    grid-template-rows:
-      50vh
-      50vh;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100vw 100vw;
   }
 
   .chapter--grid {
     min-height: auto;
     height: 200vw;
-  }
-
-  .media-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100vw 100vw;
   }
 
   .media-grid img:nth-child(1) {
