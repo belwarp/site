@@ -313,6 +313,8 @@ a:focus-visible {
 
   font-size: clamp(2.5rem, 8vw, 9rem);
   font-weight: 900;
+  color: var(--white);
+  mix-blend-mode: exclusion;
 
   line-height: 0.9;
 
@@ -350,6 +352,130 @@ a:focus-visible {
 
 .event--current {
   min-height: 220vh;
+}
+
+
+/* ============================================================
+   MAILING LIST
+   ============================================================ */
+
+.mailing-list {
+  padding:
+    12vh var(--page-pad);
+
+  text-align: center;
+}
+
+.mailing-list__inner {
+  width: min(100%, 700px);
+  margin: 0 auto;
+}
+
+.mailing-list h2 {
+  margin: 0 0 1rem;
+
+  font-size: clamp(2.5rem, 7vw, 7rem);
+  font-weight: 900;
+
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.mailing-list p {
+  margin: 0 0 2.5rem;
+  color: var(--grey);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.4;
+}
+
+.mailing-form {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.mailing-form input[type="email"],
+.mailing-form button {
+  padding: 1.25rem 1.5rem;
+
+  border: 2px solid var(--white);
+
+  font: inherit;
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+}
+
+.mailing-form input[type="email"] {
+  min-width: 0;
+  flex: 1;
+
+  color: var(--white);
+  background: var(--black);
+}
+
+.mailing-form button {
+  padding-inline: 2rem;
+  color: var(--black);
+  background: var(--white);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.mailing-form button:hover,
+.mailing-form button:focus-visible {
+  color: var(--white);
+  background: var(--black);
+}
+
+.mailing-form__honeypot {
+  position: absolute;
+  left: -5000px;
+}
+
+.mailing-list__form {
+  display: flex;
+  gap: 1rem;
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.mailing-list__input,
+.mailing-list__button {
+  min-height: 64px;
+  padding: 1rem 1.4rem;
+  border: 2px solid var(--white);
+  font: inherit;
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+}
+
+.mailing-list__input {
+  flex: 1;
+  min-width: 0;
+  color: var(--white);
+  background: var(--black);
+}
+
+.mailing-list__button {
+  padding-inline: 2rem;
+  color: var(--black);
+  background: var(--white);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+
+/* ============================================================
+   PHOTO CREDIT
+   ============================================================ */
+
+.photo-credit {
+  margin: 1.5rem var(--page-pad) 0;
+  color: var(--white);
+  /*font-size: 0.8rem;*/
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 
@@ -639,8 +765,7 @@ a:focus-visible {
   left: var(--page-pad);
   top: 50%;
 
-  transform:
-    translateY(-50%);
+  transform: translateY(-50%);
 
   max-width: none;
 
@@ -648,10 +773,10 @@ a:focus-visible {
   font-weight: 900;
 
   line-height: 0.78;
-
   letter-spacing: -0.06em;
 
   color: var(--white);
+  mix-blend-mode: exclusion;
 
   white-space: nowrap;
 
@@ -913,8 +1038,8 @@ a:focus-visible {
   font-size: clamp(5rem, 18vw, 20rem);
   font-weight: 900;
 
+  transform: translateX(-0.12em);
   line-height: 0.72;
-
   letter-spacing: -0.065em;
 }
 
@@ -940,6 +1065,19 @@ a:focus-visible {
   font-weight: 700;
 }
 
+.epilogue__brand {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /*gap: 0.1em;*/
+}
+
+.epilogue__dotmark {
+  width: 0.9em;
+  height: 0.9em;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
 
 .chapter--reel {
   position: relative;
@@ -968,6 +1106,8 @@ a:focus-visible {
 }
 
 .reel-copy {
+  color: var(--white);
+  mix-blend-mode: exclusion;
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -1067,7 +1207,6 @@ a:focus-visible {
 
   .hero__meta {
     flex-direction: column;
-
     gap: 0.2rem;
   }
 
@@ -1087,7 +1226,6 @@ a:focus-visible {
     grid-template-rows:
       50vh
       50vh;
-
   }
 
   .media-grid img:nth-child(1) {
@@ -1112,12 +1250,17 @@ a:focus-visible {
 
   .chapter__overlay-text {
     font-size: clamp(2.2rem, 10vw, 5rem);
+
+    color: var(--white);
+    mix-blend-mode: exclusion;
+
+    white-space: normal;
+    max-width: calc(100% - 2 * var(--page-pad));
   }
 
   .poster {
     width: 90vw;
   }
-
 }
 
 

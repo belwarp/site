@@ -77,107 +77,148 @@
     <span>↓</span>
   </div>
 
-    <section class="chapter chapter--hero chapter--02-hero">
+  <section class="chapter chapter--hero chapter--02-hero">
 
-      <img
-        src="./assets/belwarp-dotmark.png"
-        alt=""
-        class="dotmark dotmark--02"
-        aria-hidden="true"
-      >
+    <img
+      src="./assets/belwarp-dotmark.png"
+      alt=""
+      class="dotmark dotmark--02"
+      aria-hidden="true"
+    >
 
-      <img
-        src="./assets/bwp02/belwarp02-hero.png"
-        alt=""
-        class="chapter__media"
-      >
+    <img
+      src="./assets/bwp02/belwarp02-hero.png"
+      alt=""
+      class="chapter__media"
+    >
 
-      <div class="chapter__shade"></div>
+    <div class="chapter__shade"></div>
 
-      <div class="chapter__content">
+    <div class="chapter__content">
 
-        <p class="event__status">
-          NEXT TRANSMISSION
-        </p>
+      <p class="event__status">
+        NEXT TRANSMISSION
+      </p>
 
-        <h2 id="belwarp-02" class="chapter__title">
-          BELWARP.02
-        </h2>
+      <h2 id="belwarp-02" class="chapter__title">
+        BELWARP.02
+      </h2>
 
-        <div class="event__details">
-          <time datetime="2026-11-28">
-            28 NOV 2026
-          </time>
+      <div class="event__details">
+        <time datetime="2026-11-28">
+          28 NOV 2026
+        </time>
 
-          <span>KIRKGATE CENTRE</span>
-          <span>SHIPLEY</span>
-        </div>
-
+        <span>KIRKGATE CENTRE</span>
+        <span>SHIPLEY</span>
       </div>
 
-    </section>
+    </div>
+
+  </section>
 
 
-    <section class="chapter chapter--02-lineup">
+  <section class="chapter chapter--02-lineup">
 
-      <video
-        class="chapter__media"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        poster="./assets/bwp02/lineup-poster.jpg"
-        aria-hidden="true"
+    <video
+      class="chapter__media"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="./assets/bwp02/lineup-poster.jpg"
+      aria-hidden="true"
+    >
+      <source
+        src="./assets/bwp02/swk-promo-web.mp4"
+        type="video/mp4"
       >
-        <source
-          src="./assets/bwp02/swk-promo-web.mp4"
-          type="video/mp4"
-        >
-      </video>
+    </video>
 
-      <div class="chapter__shade chapter__shade--heavy"></div>
+    <div class="chapter__shade chapter__shade--heavy"></div>
 
-      <div class="chapter__content chapter__content--bottom">
+    <div class="chapter__content chapter__content--bottom">
 
-        <div class="event__lineup">
-          <p>SILVERWINGKILLER</p>
-          <p>SIN CLAIR</p>
-          <p class="event__lineup-more">+ MORE TO BE ANNOUNCED</p>
-        </div>
-
+      <div class="event__lineup">
+        <p>SILVERWINGKILLER</p>
+        <p>SIN CLAIR</p>
+        <p class="event__lineup-more">+ MORE TO BE ANNOUNCED</p>
       </div>
 
-    </section>
+    </div>
+
+  </section>
 
 
-    <section class="chapter chapter--poster chapter--02-poster">
+  <section class="chapter chapter--poster chapter--02-poster">
 
-      <figure class="poster">
-        <img
-          src="./assets/bwp02/belwarp02-poster.png"
-          alt="BELWARP.02 promotional artwork"
-          loading="lazy"
-        >
-      </figure>
+    <figure class="poster">
+      <img
+        src="./assets/bwp02/belwarp02-poster.png"
+        alt="BELWARP.02 promotional artwork"
+        loading="lazy"
+      >
+    </figure>
 
-    </section>
+  </section>
 
-    <!--
-      Add real Ticket Tailor URL when ticketing is live.
-    -->
+  <!--
+    Add real Ticket Tailor URL when ticketing is live.
+  -->
 
-    <!--
-    <p class="event__action">
-      <a
-        href="https://..."
+  <!--
+  <p class="event__action">
+    <a
+      href="https://..."
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      TICKETS ↗
+    </a>
+  </p>
+  -->
+
+  <section class="mailing-list" aria-labelledby="mailing-list-title">
+    <div class="mailing-list__inner">
+      <div class="mailing-list__copy">
+        <h2 id="mailing-list-title">JOIN OUR MAILING LIST</h2>
+        <p>Be first to hear about new BELWARP events and tickets.</p>
+      </div>
+
+      <form
+        class="mailing-list__form"
+        action="https://belwarp.us9.list-manage.com/subscribe/post?u=7ff53a6043e3861f8cd7824f3&amp;id=a12aefc4b1&amp;f_id=00f6d5e3f0"
+        method="post"
         target="_blank"
-        rel="noopener noreferrer"
+        novalidate
       >
-        TICKETS ↗
-      </a>
-    </p>
-    -->
+        <label class="sr-only" for="mce-EMAIL">Email address</label>
+        <input
+          class="mailing-list__input"
+          type="email"
+          name="EMAIL"
+          id="mce-EMAIL"
+          placeholder="YOUR EMAIL"
+          autocomplete="email"
+          required
+        >
+        <button class="mailing-list__button" type="submit">JOIN ↗</button>
+
+        <div class="mailing-form__honeypot" aria-hidden="true">
+          <!-- the weird Mailchimp b_... input -->
+          <div class="mailing-list__honeypot" aria-hidden="true">
+            <input
+              type="text"
+              name="b_7ff53a6043e3861f8cd7824f3_a12aefc4b1"
+              tabindex="-1"
+              value=""
+            >
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
 
   <div class="timeline-marker" aria-hidden="true">
     <span>PAST EVENTS</span>
@@ -266,13 +307,20 @@
       </div>
 
       <div class="chapter__overlay-text">
-        FOUR INCREDIBLE ARTISTS<br>
+        FOUR INCREDIBLE ARTISTS
+        <br>
+        <br>
         ONE UNFORGETTABLE NIGHT
       </div>
 
     </section>
 
-
+    <p class="photo-credit">
+      BELWARP.01 PHOTOGRAPHY:
+      <a href="https://www.instagram.com/333_renn_photography/"
+         target="_blank"
+         rel="noopener noreferrer">REN CONRAD</a>
+    </p>
 
     <!-- ======================================================
          ARTISTS
@@ -369,9 +417,45 @@
           YOU HAD TO BE THERE...
           <br>
           <br>
-          YOU CAN STILL
+          YOU STILL CAN:
+          <br>
+          <br>
         </p>
 
+        <form
+          class="mailing-list__form"
+          action="https://belwarp.us9.list-manage.com/subscribe/post?u=7ff53a6043e3861f8cd7824f3&amp;id=a12aefc4b1&amp;f_id=00f6d5e3f0"
+          method="post"
+          target="_blank"
+          novalidate
+        >
+          <label class="sr-only" for="epilogue-email">Email address</label>
+
+          <input
+            class="mailing-list__input"
+            type="email"
+            name="EMAIL"
+            id="epilogue-email"
+            placeholder="YOUR EMAIL"
+            autocomplete="email"
+            required
+          >
+
+          <button class="mailing-list__button" type="submit">
+            JOIN ↗
+          </button>
+
+          <div class="mailing-form__honeypot" aria-hidden="true">
+            <div class="mailing-list__honeypot" aria-hidden="true">
+              <input
+                type="text"
+                name="b_7ff53a6043e3861f8cd7824f3_a12aefc4b1"
+                tabindex="-1"
+                value=""
+              >
+            </div>
+          </div>
+        </form>
       </div>
 
     </section>
@@ -385,9 +469,14 @@
   -->
 
   <section class="colophon" aria-labelledby="about-belwarp">
-
-    <h2 id="about-belwarp">
-      BELWARP
+    <h2 class="epilogue__brand">
+      <img
+        class="epilogue__dotmark"
+        src="./assets/belwarp-dotmark.png"
+        alt=""
+        aria-hidden="true"
+      >
+      <span>BELWARP</span>
     </h2>
 
     <p>
@@ -410,7 +499,7 @@
         INSTAGRAM ↗
       </a>
 
-      <a href="mailto:help@belwarp.com">
+      <a href="mailto:hello@belwarp.com">
         CONTACT ↗
       </a>
 
