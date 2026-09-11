@@ -1238,7 +1238,7 @@ a:focus-visible {
   }
 
   .media-grid__cell:nth-child(4) img {
-    object-position: 30% 50%;
+    object-position: 20% 50%;
     transform: scale(1.05) translateY(-10%);
   }
 
