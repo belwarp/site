@@ -70,6 +70,7 @@ a {
 
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.15em;
+  text-decoration: none;
 }
 
 a:hover {
@@ -1261,8 +1262,17 @@ a:focus-visible {
     letter-spacing: -0.05em;
   }
 
+  .reel-copy p {
+    max-width: none;
+    font-size: 13vw;
+  }
+
   .colophon h2 {
     font-size: 17vw;
+  }
+
+  .colophon p {
+    font-size: 5.8vw;
   }
 }
 
