@@ -337,15 +337,14 @@ a:focus-visible {
 }
 
 .event__action {
-  margin:
-    10vh 0;
-
+  display: block;
+  width: fit-content;
+  margin: 10vh auto;
   font-size: clamp(3rem, 10vw, 10rem);
   font-weight: 900;
-
   line-height: 0.9;
+  text-align: center;
 }
-
 
 /* ============================================================
    CURRENT EVENT
