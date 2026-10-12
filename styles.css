@@ -673,9 +673,8 @@ a:focus-visible {
   position: absolute;
   left: 50%;
   top: 50%;
-Ï
   width: min(56vw, 420px);
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 4 / 5;
 
   transform-origin: center;
   will-change: transform;
