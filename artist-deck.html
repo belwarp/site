@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>BELWARP card test</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      background: #050505;
+      color: #f4f4f0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /*
+     * Just gives us something before and after the deck
+     * so we can see the sticky section engage/release.
+     */
+    .dummy-section {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+
+      font-size: clamp(3rem, 10vw, 10rem);
+      font-weight: 900;
+      line-height: .8;
+      text-align: center;
+    }
+
+
+    /* ----------------------------------------
+       DECK
+       ---------------------------------------- */
+
+    [data-deck] {
+      /*
+       * JS replaces this based on card count.
+       * This is merely the no-JS/default value.
+       */
+      height: 500vh;
+
+      position: relative;
+    }
+
+    .artist-deck__stage {
+      position: sticky;
+      top: 0;
+
+      width: 100%;
+      height: 100vh;
+
+      overflow: hidden;
+      background: #111;
+    }
+
+
+    /* ----------------------------------------
+       CARDS
+       ---------------------------------------- */
+
+    [data-card] {
+      position: absolute;
+
+      /*
+       * Everything begins centred.
+       * JS adds translate/scale/rotate.
+       */
+      left: 50%;
+      top: 50%;
+
+      width: min(56vw, 420px);
+      aspect-ratio: 2 / 3;
+
+      transform-origin: center center;
+
+      will-change: transform;
+    }
+
+    .artist-card__face {
+      width: 100%;
+      height: 100%;
+
+      overflow: hidden;
+
+      border: 2px solid #f4f4f0;
+      background: #050505;
+    }
+
+    /*
+     * Temporary artwork.
+     * We'll eventually just put an <img> here.
+     */
+    .artist-card__placeholder {
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      padding: 1.5rem;
+
+      font-weight: 900;
+    }
+
+    .artist-card__number {
+      font-size: 1rem;
+    }
+
+    .artist-card__name {
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: .85;
+      overflow-wrap: anywhere;
+    }
+
+    .artist-card__event {
+      font-size: 1rem;
+    }
+
+
+    /* ----------------------------------------
+       REDUCED MOTION
+       ---------------------------------------- */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      [data-deck] {
+        height: auto !important;
+        padding: 2rem;
+      }
+
+      .artist-deck__stage {
+        position: static;
+        height: auto;
+
+        display: grid;
+        gap: 2rem;
+
+        overflow: visible;
+      }
+
+      [data-card] {
+        position: static;
+
+        width: min(100%, 420px);
+        margin: 0 auto;
+
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<section class="dummy-section">
+  THE BILL
+</section>
+
+
+<section class="artist-deck" data-deck>
+
+  <div class="artist-deck__stage">
+
+    <article class="artist-card" data-card>
+      <div class="artist-card__face">
+        <div class="artist-card__placeholder">
+          <span class="artist-card__number">01 / 04</span>
+          <span class="artist-card__name">SILVERWINGKILLER</span>
+          <span class="artist-card__event">BELWARP.02</span>
+        </div>
+      </div>
+    </article>
+
+
+    <article class="artist-card" data-card>
+      <div class="artist-card__face">
+        <div class="artist-card__placeholder">
+          <span class="artist-card__number">02 / 04</span>
+          <span class="artist-card__name">SIN CLAIR</span>
+          <span class="artist-card__event">BELWARP.02</span>
+        </div>
+      </div>
+    </article>
+
+
+    <article class="artist-card" data-card>
+      <div class="artist-card__face">
+        <div class="artist-card__placeholder">
+          <span class="artist-card__number">03 / 04</span>
+          <span class="artist-card__name">K.YALO</span>
+          <span class="artist-card__event">BELWARP.02</span>
+        </div>
+      </div>
+    </article>
+
+
+    <article class="artist-card" data-card>
+      <div class="artist-card__face">
+        <div class="artist-card__placeholder">
+          <span class="artist-card__number">04 / 04</span>
+          <span class="artist-card__name">ARTIST FOUR</span>
+          <span class="artist-card__event">BELWARP.02</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+</section>
+
+
+<section class="dummy-section">
+  CONTINUE
+</section>
+
+
+<script>
+  document.querySelectorAll("[data-deck]").forEach(initDeck);
+
+  function initDeck(deck) {
+    const stage = deck.querySelector(".artist-deck__stage");
+    const cards = [...deck.querySelectorAll("[data-card]")];
+
+    if (!stage || !cards.length) return;
+    const leadIn = 0.4;
+    const leadOut = 0.5;
+    deck.style.height =
+      `${(cards.length + leadIn + leadOut + 1) * 100}vh`;
+    if (!stage || !cards.length) return;
+
+    /*
+     * One viewport-ish worth of scrolling per card,
+     * plus the sticky viewport itself.
+     */
+    deck.style.height = `${(cards.length + 1) * 100}vh`;
+
+    const clamp = (value, min = 0, max = 1) =>
+      Math.min(max, Math.max(min, value));
+
+    /*
+     * Smoothstep gives us acceleration/deceleration
+     * without introducing time-based animation.
+     */
+    const ease = value => {
+      value = clamp(value);
+      return value * value * (3 - 2 * value);
+    };
+
+    const mix = (from, to, amount) =>
+      from + (to - from) * amount;
+
+
+    function render() {
+      const rect = deck.getBoundingClientRect();
+      const scrollDistance =
+        deck.offsetHeight - window.innerHeight;
+      const scrolled = clamp(
+        -rect.top / scrollDistance
+      );
+      const totalUnits =
+        leadIn + cards.length + leadOut;
+      const timeline =
+        scrolled * totalUnits;
+      const journey = clamp(
+        timeline - leadIn,
+        0,
+        cards.length
+      );
+
+      cards.forEach((card, index) => {
+
+        /*
+         * 0 → 1 represents this card's complete deal.
+         *
+         * < 0 = hasn't started
+         * > 1 = already played
+         */
+        const p = clamp(journey - index);
+
+
+        let x;
+        let y;
+        let scale;
+        let rotation;
+
+
+        /*
+         * PHASE 1
+         * Bottom → centre
+         */
+        if (p < 0.30) {
+          const t = ease(p / 0.30);
+
+          x = mix(
+            deckX(index, cards.length),
+            0,
+            t
+          );
+
+          y = mix(
+            window.innerHeight * 0.42,
+            0,
+            t
+          );
+
+          scale = mix(
+            0.30,
+            1,
+            t
+          );
+
+          rotation = mix(
+            deckRotation(index),
+            0,
+            t
+          );
+        }
+
+
+        /*
+         * PHASE 2
+         * Hold for reading
+         */
+        else if (p < 0.65) {
+          x = 0;
+          y = 0;
+          scale = 1;
+          rotation = 0;
+        }
+
+
+        /*
+         * PHASE 3
+         * Centre → hand
+         */
+        else {
+          const t = ease(
+            (p - 0.65) / 0.35
+          );
+
+          x = mix(
+            0,
+            handX(index, cards.length),
+            t
+          );
+
+          y = mix(
+            0,
+            -window.innerHeight * 0.40,
+            t
+          );
+
+          scale = mix(
+            1,
+            0.30,
+            t
+          );
+
+          rotation = mix(
+            0,
+            handRotation(index),
+            t
+          );
+        }
+
+        /*
+         * translate(-50%, -50%) makes left/top 50%
+         * represent the card's centre.
+         */
+        card.style.transform = `
+            translate(-50%, -50%)
+            translate(${x}px, ${y}px)
+            scale(${scale})
+            rotate(${rotation}deg)
+          `;
+
+        /*
+         * Active/newer cards sit above old ones.
+         */
+        card.style.zIndex =
+          String(index + 1);
+      });
+    }
+
+
+    /*
+     * Horizontal positions of cards waiting
+     * at the bottom.
+     */
+    function deckX(index, count) {
+      const spacing = Math.min(
+        window.innerWidth * 0.16,
+        140
+      );
+
+      return (
+        index - (count - 1) / 2
+      ) * spacing;
+    }
+
+
+    /*
+     * Horizontal positions in completed hand.
+     */
+    function handX(index, count) {
+      const spacing = Math.min(
+        window.innerWidth * 0.16,
+        140
+      );
+
+      return (
+        index - (count - 1) / 2
+      ) * spacing;
+    }
+
+
+    function deckRotation(index) {
+      return (index % 2 ? 1 : -1) * 3;
+    }
+
+
+    function handRotation(index) {
+      return (index % 2 ? 1 : -1) * 2;
+    }
+
+
+    let ticking = false;
+
+    function requestRender() {
+      if (ticking) return;
+
+      ticking = true;
+
+      requestAnimationFrame(() => {
+        render();
+        ticking = false;
+      });
+    }
+
+
+    window.addEventListener(
+      "scroll",
+      requestRender,
+      { passive: true }
+    );
+
+    window.addEventListener(
+      "resize",
+      requestRender
+    );
+
+    render();
+  }
+</script>
+
+</body>
+</html>

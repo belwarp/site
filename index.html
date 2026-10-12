@@ -16,7 +16,6 @@
 
   <link rel="stylesheet" href="./styles.css">
 </head>
-
 <body>
 
 <!--
@@ -77,15 +76,6 @@
     <span>↓</span>
   </div>
 
-  <section class="chapter chapter--poster chapter--support">
-    <figure class="poster poster--support">
-      <img
-        src="./assets/bwp02/belwarp02-support.png"
-        alt="BELWARP VOL.02 — supported using public funding by Arts Council England, Bradford Culture Company, Bradford Music Month and Bradford District Music Strategy."
-      >
-    </figure>
-  </section>
-
   <section class="chapter chapter--hero chapter--02-hero">
     <img
       src="./assets/belwarp-dotmark.png"
@@ -131,7 +121,6 @@
       loop
       playsinline
       preload="metadata"
-      poster="./assets/bwp02/lineup-poster.jpg"
       aria-hidden="true"
     >
       <source
@@ -164,12 +153,50 @@
   </p>
 
 
-  <section class="chapter chapter--poster chapter--02-poster">
-    <figure class="poster">
+  <section class="artist-deck" data-deck>
+
+    <div class="artist-deck__stage">
+      <article class="artist-card" data-card>
+        <div class="artist-card__face">
+          <img
+            src="./assets/bwp02/cards/belwarp02-poster-swk.png"
+            alt="SILVERWINGKILLER"
+          >
+        </div>
+      </article>
+      <article class="artist-card" data-card>
+        <div class="artist-card__face">
+          <img
+            src="./assets/bwp02/cards/belwarp02-poster-sinclair.png"
+            alt="SIN CLAIR"
+          >
+        </div>
+      </article>
+      <article class="artist-card" data-card>
+        <div class="artist-card__face">
+          <img
+            src="./assets/bwp02/cards/belwarp02-poster-ac.png"
+            alt="ANOTHER COUNTRY $$$$"
+          >
+        </div>
+      </article>
+      <article class="artist-card" data-card>
+        <div class="artist-card__face">
+          <img
+            src="./assets/bwp02/cards/belwarp02-poster-kyalo.png"
+            alt="K.YALO"
+          >
+        </div>
+      </article>
+    </div>
+
+  </section>
+
+  <section class="chapter chapter--poster chapter--support">
+    <figure class="poster poster--support">
       <img
-        src="./assets/bwp02/belwarp02-poster.png"
-        alt="BELWARP.02 promotional artwork"
-        loading="lazy"
+        src="./assets/bwp02/belwarp02-support.png"
+        alt="BELWARP VOL.02 — supported using public funding by Arts Council England, Bradford Culture Company, Bradford Music Month and Bradford District Music Strategy."
       >
     </figure>
   </section>
@@ -478,5 +505,6 @@
 
 </main>
 
+<script src="./js/app.js"></script>
 </body>
 </html>
